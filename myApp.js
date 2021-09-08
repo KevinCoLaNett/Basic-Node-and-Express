@@ -59,7 +59,11 @@ app.get('/name', (req, res) => {
 })
 
 
-
+//--12--
+app.post('/name', (req, res) => {
+  res.json({ name: `${req.body.first} ${req.body.last}` });
+  console.log({ name: `${req.body.first} ${req.body.last}` });
+})
 
 
 
