@@ -11,11 +11,12 @@ app.use((req, res, next) => {
 
 
 //--11--
-app.use((req, res, next) => {
-  bodyParser.urlencoded({extended: false});
-  console.log(bodyParser);
-  next();
-});
+//parse application 
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//parse application/json
+app.use(bodyParser.json)
+
 
 
 //--1--
