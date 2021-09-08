@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 require('dotenv').config();
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser')
 
 //--7--
 app.use((req, res, next) => {
@@ -11,12 +11,8 @@ app.use((req, res, next) => {
 
 
 //--11--
-//parse application 
-app.use(bodyParser.urlencoded({ extended: false }));
-
-//parse application/json
-app.use(bodyParser.json)
-
+//body-parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 //--1--
@@ -60,7 +56,7 @@ app.get('/name', (req, res) => {
 
 
 //--12--
-app.post('/name', (req, res) => {
+app.post('/name', urlencodedParser, (req, res) => {
   res.json({ name: `${req.body.first} ${req.body.last}` });
   console.log({ name: `${req.body.first} ${req.body.last}` });
 })
